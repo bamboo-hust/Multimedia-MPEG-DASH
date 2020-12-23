@@ -1,7 +1,7 @@
 var player;
 function init() {
     var video;
-    var url = "http://localhost/servervideo/my_video_manifest.mpd";
+    var url = "http://0.0.0.0:8000/demo/servervideo/my_video_manifest.mpd";
 
     //var url = "http://rdmedia.bbc.co.uk/dash/ondemand/testcard/1/client_manifest-events.mpd";
 

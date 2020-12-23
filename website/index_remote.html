@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>MPEG-DASH Streaming Protocol</title>
+	<link rel="shortcut icon" type="image/png" href="../images/mpeg-dash-4.png" />
+	<!-- Demo scripts -->
+	<script src="../demo/sourcedash/dash.all.debug.js"></script>
+	<script class="code" src="../demo/index_remote_server.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-light bg-dark fixed-top">
+		<a class="navbar-brand" id="nav">RSC 2019/2020</a>
+		<form class="form-inline">
+			<a class="nav-item nav-link" href="#">HLS</a>
+			<a class="nav-item nav-link" href="#">MPEG-DASH</a>
+			<a class="nav-item nav-link" href="#">RTMP</a>
+			<a class="nav-item nav-link" href="#">RTSP+RTP</a>
+			<a class="nav-item nav-link" href="#">WebRTC</a>
+		</form>
+	</nav>
+
+	<nav class="navbar navbar-light fixed-top" id="navbar2">
+		<a class="navbar-brand" id="nav2">MPEG-DASH</a>
+		<form class="form-inline">
+			<a class="nav-item nav-link" href="#presentation">Protocol Presentation</a>
+			<a class="nav-item nav-link" href="#demonstration">Demonstration</a>
+			<a class="nav-item nav-link" href="#howto">HowTo</a>
+		</form>
+	</nav>
+
+	<div class="container">
+		<div id="presentation" class="anchor"></div>
+		<div class="card">
+			<div class="card-header">
+				<h2> Protocol Presentation </h2>
+			</div>
+			<div class="card-body">
+				<h3 class="card-title">MPEG-DASH</h3>
+				<div class="card-text">
+					<h5>Click <a href="https://mpeg.chiariglione.org/standards/mpeg-dash">&gt;here&lt;</a> for the Official	Website of MPEG-DASH</h5>
+					<div class="texte-illustration">
+						<p class="flotteg">
+						<!-- Trigger the Modal -->
+						<img id="myImg" src="../images/Bitrate_streaming.jpg" alt="Bitstrate streaming" width=100%>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+						  <!-- The Close Button -->
+						  <span class="close">&times;</span>
+
+						  <!-- Modal Content (The Image) -->
+						  <img class="modal-content" id="img01">
+
+						  <!-- Modal Caption (Image Text) -->
+						  <div id="caption"></div>
+						</div>
+
+						<script>
+						// Get the modal
+						var modal = document.getElementById("myModal");
+
+						// Get the image and insert it inside the modal - use its "alt" text as a caption
+						var img = document.getElementById("myImg");
+						var modalImg = document.getElementById("img01");
+						var captionText = document.getElementById("caption");
+						img.onclick = function(){
+						  modal.style.display = "block";
+						  modalImg.src = this.src;
+						  captionText.innerHTML = this.alt;
+						}
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						  modal.style.display = "none";
+						}
+						</script>
+							
+						</p>
+						<p>
+
+							Dynamic Adaptive Streaming over HTTP, or MPEG-DASH is an adaptive streaming for media
+							content on internet.
+							It is an International Standard, created by the Moving Picture Experts
+							Group (MPEG) with the collaboration of almost a dozen organizations. <br>
+							It was created to replace multiple corporation-controlled solutions with a single industry-defined open standard.
+							The main characteristic? Interoperability. <br>
+
+							<li>The work on MPEG-DASH started in 2010; it became a Draft International Standard in January 2011, and an International Standard in November 2011.
+							The MPEG-DASH standard was published in April, 2012 but has been revised in 2019 as MPEG-DASH ISO/IEC 23009-1:2019.</li>
+							<li>It is based on the derivation of content in several versions having distinct qualities and
+							characteristics and then cut into short segments.</li>
+							<li>A manifest file in .xml format (the Media Presentation Description (MPD)) gives the client
+							the information necessary to request each segment individually from conventional HTTP web
+							servers.</li>
+							<li>The behavior of the client is not normalized, this way the provider of the service can adapt
+							it to its needs.</li>
+							<li>In practice, the selection of each segment is done by the client while the content is being played by choosing the maximum
+							bit rate that avoids stalls or rebuffering events.</li>
+							<li>This method adapts the stream to the network conditions when changing, and provides high
+							quality streaming. The use of HTTP makes possible to rely on the existing web infrastructure
+							and the existing network libraries on devices connected to the Internet.</li>
+							<li>The main advantage of using MPEG-DASH is the quality it provides, while the main
+							disadvantage is that it is not natively supported by some browsers and devices like
+							IE&#x3C;11 or iOS.</li>
+
+
+
+						</p>
+					</div>
+
+					<h5>Protocol stack</h5>
+					<div class="texte-illustration">
+						<p class="flotted">
+
+
+						<!-- Trigger the Modal -->
+						<img id="prot" src="../images/Protocol stack.jpg" alt="Protocol stack" width=100%>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+						  <!-- The Close Button -->
+						  <span class="close">&times;</span>
+
+						  <!-- Modal Content (The Image) -->
+						  <img class="modal-content" id="img01">
+
+						  <!-- Modal Caption (Image Text) -->
+						  <div id="caption"></div>
+						</div>
+
+						<script>
+						// Get the modal
+						var modal = document.getElementById("myModal");
+
+						// Get the image and insert it inside the modal - use its "alt" text as a caption
+						var img = document.getElementById("prot");
+						var modalImg = document.getElementById("img01");
+						var captionText = document.getElementById("caption");
+						img.onclick = function(){
+						  modal.style.display = "block";
+						  modalImg.src = this.src;
+						  captionText.innerHTML = this.alt;
+						}
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						  modal.style.display = "none";
+						}
+						</script>
+							
+						</p>
+						<p>
+							The protocol stack of MPEG-DASH can be divided into two possibilities: one connected and one
+							not connected. <br>
+							The network layer is the same for both possibilities: IP. It is on the transport layer that
+							the protocol stack splits in two:
+							<ul>
+							<li>The connected version uses TCP as transport layer, followed by TLS 1.2 for the security
+							layer and finally HTTP/2 for the application layer. </li>
+							<li>The non-connected version uses UDP as transport layer, combined with QUIC which extends
+							itself from the transport layer to the application layer, which is shared with HTTP/2 API.</li>
+							</ul>
+
+							What is the best choice between UDP and TCP?
+							<ul>
+							 <li>UDP features simplify data transmission and reduce the end-to-end delay, compared to TCP. Therefore, UDP is suitable for real-time applications,
+							 such as Live video streaming, that are sensitive to delay. </li>
+							 <li>TCP is more adapted to the traversal of NATs and firewalls, therefore to videos on distant servers.</li>
+							</ul>
+							For more information about IP, TCP, UDP, TLS, find it in the different RFCs: <br>
+							<ul>
+								<li><a href="https://www.rfc-editor.org/info/rfc791">IPv4: Internet Protocol version 4</a></li>
+							
+								<li><a href="https://www.rfc-editor.org/info/rfc793">TCP: Transmission Control Protocol</a></li>
+
+							<li><a href="https://www.rfc-editor.org/info/rfc768">UDP: User Datagram Protocol</a> </li>
+							
+							<li><a href="https://www.rfc-editor.org/info/rfc5246">TLS v1.2: Transport Layer Security
+								version 1.2</a> </li>
+							</ul>
+
+						</p>
+					</div>
+
+					<h5>Media Presentation Description</h5>
+					<!-- Trigger the Modal -->
+						<img id="mpd" src="../images/MPD schema.jpg" alt="MPD" width=100%>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+						  <!-- The Close Button -->
+						  <span class="close">&times;</span>
+
+						  <!-- Modal Content (The Image) -->
+						  <img class="modal-content" id="img01">
+
+						  <!-- Modal Caption (Image Text) -->
+						  <div id="caption"></div>
+						</div>
+
+						<script>
+						// Get the modal
+						var modal = document.getElementById("myModal");
+
+						// Get the image and insert it inside the modal - use its "alt" text as a caption
+						var img = document.getElementById("mpd");
+						var modalImg = document.getElementById("img01");
+						var captionText = document.getElementById("caption");
+						img.onclick = function(){
+						  modal.style.display = "block";
+						  modalImg.src = this.src;
+						  captionText.innerHTML = this.alt;
+						}
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						  modal.style.display = "none";
+						}
+						</script>
+					
+					<br>
+					<p>
+					<br>
+						Media Presentation Description (or MPD) is an XML document containing information about the data
+						segments. It is divided into multiple parts: <br>
+						<ul>
+							<li> A period ID: determines the type of information (audio, video, subtitle)</li>
+							<li> An adaptation set: determines the quality and bitrate of the segment</li>
+							<li> A representation: contains all the segment information</li>
+							<li> A segment information: contains the URL of each segment and provides additional information about the segment in itself (beginning time, end time, etc.)</li>
+						</ul>
+						With a MPD, it is easy to select the segment wanted, with the quality/bitrate/etc. needed.
+					</p>
+
+					<h5>General Fonctionment</h5>
+
+					<div class="texte-illustration">
+						<p class="flotted">
+
+						<!-- Trigger the Modal -->
+						<img id="general" src="../images/Fonctionment.jpg" alt="Fonctionment" width=100%>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+						  <!-- The Close Button -->
+						  <span class="close">&times;</span>
+
+						  <!-- Modal Content (The Image) -->
+						  <img class="modal-content" id="img01">
+
+						  <!-- Modal Caption (Image Text) -->
+						  <div id="caption"></div>
+						</div>
+
+						<script>
+						// Get the modal
+						var modal = document.getElementById("myModal");
+
+						// Get the image and insert it inside the modal - use its "alt" text as a caption
+						var img = document.getElementById("general");
+						var modalImg = document.getElementById("img01");
+						var captionText = document.getElementById("caption");
+						img.onclick = function(){
+						  modal.style.display = "block";
+						  modalImg.src = this.src;
+						  captionText.innerHTML = this.alt;
+						}
+
+						// Get the <span> element that closes the modal
+						var span = document.getElementsByClassName("close")[0];
+
+						// When the user clicks on <span> (x), close the modal
+						span.onclick = function() {
+						  modal.style.display = "none";
+						}
+						</script>
+							
+						</p>
+						<p>
+
+							Playback of content via MPEG-DASH is as follows:
+						</p>
+						<div class="texte-icone">
+							<p class="flotteg" id=numeros>
+								<img src="../images/1.png"  width=100%>
+							</p>
+							<p>
+								First, the client requests the Media Presentation Description (MPD) associated with the
+								desired content from the MPD server and receives it.
+								This MPD is parsed by the client and provides it with the data necessary for the
+								acquisition and processing of the segments.
+
+							</p>
+						</div>
+
+						<div class="texte-icone">
+							<p class="flotteg" id=numeros>
+								<img src="../images/2.png" width=100%>
+							</p>
+							<p>
+								Everything is supervised by a heuristic control.
+
+							</p>
+						</div>
+
+						<div class="texte-icone">
+							<p class="flotteg" id=numeros>
+								<img src="../images/3.png" width=100%>
+							</p>
+							<p>
+								The HTTP client then begins to request one by one the segments from the servers
+								concerned, taking into account the network conditions
+								for the choice of bit rate and quality in order to get the higher quality and bit rate
+								possible avoiding stalls or rebuffering.
+
+							</p>
+						</div>
+
+						<div class="texte-icone">
+							<p class="flotteg" id=numeros>
+								<img src="../images/4.png" width=100%>
+							</p>
+							<p>
+								The segments are parsed using a segment parser.
+
+							</p>
+						</div>
+
+						<div class="texte-icone">
+							<p class="flotteg" id=numeros>
+								<img src="../images/5.png"width=100%>
+							</p>
+							<p>
+								The segments are finally played by the player.
+
+							</p>
+						</div>
+
+						<p>
+
+							An important point is that the following segments are requested, received and processed
+							while playing the previous ones.
+							This allows to display the content without interruption and to adapt in real time to the
+							network.
+
+						</p>
+
+					</div>
+					</p>
+				</div>
+
+				<h5>Advantages & Disadvantages</h5>
+				<br>
+
+				<table>
+					<thead>
+						<tr>
+							<td>Advantages</td>
+							<td>Disadvantages</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+							<ul>
+							<li>Provides a good quality (the best that can be handled by the internet connexion at a moment)</li>
+							<li>Reliable and stable : minimize buffering lags</li>
+							<li>Standard and support growing (will get easier over time)</li>
+							<li>Plays natively on Chrome and Android</li>
+							</ul>
+							<td>
+							<ul>
+							<li>No native support for Safari, iOS and Internet Explorer &lt; 11</li>
+							</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<br>
+
+				<h5>Use Cases</h5>
+
+					<div class="texte-illustration">
+						<p> MPEG-DASH can be use in many cases. Here are a few examples:
+							<ul>
+							  <li>On-Demand, Live and time-shift streaming</li>
+							  <li>Delivery of same content on many screens</li>
+							  <li>Delivery of any multimedia content (2D, graphics, subtitles, text, etc.)</li>
+							  <li>Support of multiple languages and different audio configuration</li>
+							</ul>
+						</p>
+					</div>
+
+					<h5>Existing projets</h5>
+
+					<div class="texte-illustration">
+						<p> 
+							<ul>
+							  <li>
+							  	<a href="https://github.com/Dash-Industry-Forum/dash.js/wiki/"> Dash.js </a> (framework for building video and audio players that play back MPEG-DASH content using client-side JavaScript libraries)
+							  </li>
+							  <li>
+							  	<a href="https://github.com/google/shaka-player/"> Shaka </a> (open source dash player from Google)
+							  </li>
+							  <li>
+							  	<a href="https://github.com/bitmovin/libdash"> Libdash </a> (open-source library to use MPEG-DASH standard)
+							  </li>
+							  <li>
+							  	<a href="https://bitmovin.com/video-player"> Bitmovin </a> (Live or on-demand transcoding of video and web-based MPEG-DASH players in HTML5 or Flash)
+							  </li>
+							</ul>
+						</p>
+					</div>
+			</div>
+		</div>
+
+		<div id="demonstration" class="anchor"></div>
+		<div class="card" id="">
+			<div class="card-header">
+				<h2> Demonstration </h2>
+			</div>
+			<div class="card-body">
+				<div class="card-text">
+					URL MDP file:
+					<a
+						href="http://rdmedia.bbc.co.uk/dash/ondemand/testcard/1/client_manifest-events.mpd">http://rdmedia.bbc.co.uk/dash/ondemand/testcard/1/client_manifest-events.mpd</a>
+				</div>
+				<br>
+				<div id="container">
+					<div class="video-container" id="colonne1">
+						<video data-dashjs-player controls="true"></video>
+					</div>
+					<fieldset id="colonne2">
+						<h5>Video Fragment</h5>
+						<div id="trace" placeholder="Trapped events will be displayed here"></div>
+					</fieldset>
+					<fieldset id="colonne3">
+						<h5>Audio Fragment</h5>
+						<div id="trace2" placeholder="Trapped events will be displayed here"></div>
+					</fieldset>
+					<fieldset>
+						<br>
+						<h5>Configuration parameters</h5>
+						<div>
+							Max stable buffer (seconds): <input type="number" id="stableBuffer" value="20"> (Current
+							Buffer: <span id="currentBufferLevel" )>0</span> seconds)
+							<div class="description">The time that the internal buffer target will be set to post
+								startup/seeks (NOT
+								top quality).</div>
+						</div>
+						<div>
+							Buffer lenght at top quality (seconds): <input type="number" id="topQualityBuffer"
+								value="20">
+							<div class="description">The time that the internal buffer target will be set to once
+								playing the top
+								quality.</div>
+						</div>
+						<div>
+							Max selectable bitrate (Kbps): <input type="number" id="maxBitrate" value="5000">
+							(Downloading bitrate:
+							<span id="reportedBitrate" )>0</span>)
+							<div class="description">The maximum bitrate selectable by the ABR algorithms will choose.
+								Use -1 for no
+								limit.</div>
+						</div>
+						<div>
+							Min selectable bitrate (Kbps): <input type="number" id="minBitrate" value="-1">
+							<div class="description">The minimum bitrate that the ABR algorithms will choose. Use -1 for
+								no limit.
+							</div>
+						</div>
+						<div>
+							Limit Bitrate By Portal Size: <input type="checkbox" id="limitByPortal">
+							<div class="description">If true, the size of the video portal will limit the max chosen
+								video
+								resolution.</div>
+						</div>
+						<div>
+							<button onclick="applySettings()">Apply changes</button>
+						</div>
+					</fieldset>
+				</div>
+				<script>
+					document.addEventListener("DOMContentLoaded", function () {
+						init();
+					});
+				</script>
+			</div>
+		</div>
+
+		<div id="howto" class="anchor"></div>
+
+		<div class="card">
+			<div class="card-header">
+				<h2> HowTo </h2>
+			</div>
+
+			<div class="card-body">
+				<ul>
+					<li>
+						<h3> Introduction</h3>
+						<p>
+							The goal of the player part is to reproduce the above demonstration on your own website. <br>
+							The goal of the server part is to create a local server containing the MPD server and a CDN server in order to read a local video.  <br>
+							In addition, you will create a MPD file and dashable segments of a selected video.
+
+						</p>
+					</li>
+					<li>
+						<h3> Prerequisites </h3>
+						<ul>
+							<li>
+								<h5> Player Prerequisites </h5>
+								We used the library DashJS to settle our dash player via JavaScript and 
+								<a href="https://caniuse.com/#feat=mediasource"> compliant browsers</a>. Have a look on their
+								<a href="https://github.com/Dash-Industry-Forum/dash.js"> GitHub</a> if you want more information. 
+								<b> If you have a compliant browser, no need to set up anything.</b> 
+							</li>
+							<br>
+							<li>
+								<h5> Server Prerequisites </h5>
+								<p>
+									You will need ffmpeg on Linux machine, which is a tool for handling video, audio, and other multimedia files
+									and streams.
+									(Have a look to <a href="https://www.ffmpeg.org">their website</a> for more information.)
+									<br>
+									<br>
+									Download and install ffmpeg with:
+									<code>sudo apt-get install ffmpeg</code> <br>
+									Download and install HTTP server Apache 2 with:
+									<code>sudo apt install apache2</code> <br>
+									Verify the configuration :
+									<code>apache2 -version</code> <br>
+									Start the Apache2 service : 
+									<code>sudo systemctl startup apache2</code>
+								</p>
+
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h3> Deployment</h3>
+						<ul>
+							<li>
+								<h5> Player Deployment: Integrate a dash player in your website </h5>
+
+
+								You can integrate the dash player simply by adding those lines (in an html file). 
+								<code>
+									touch index.html
+								</code> <br>
+								You can modify the MPD url to change the video played. 
+								<br>
+								<pre>
+								<code>
+&lt;script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+...
+&lt;style>
+    video {
+       width: 640px;
+       height: 360px;
+    }
+&lt;/style>
+...
+&lt;body>
+   &lt;div>
+       &lt;video data-dashjs-player autoplay src="localhost/serverVideo/my_video_manifest.mpd" controls>&lt;/video>
+   &lt;/div>
+&lt;/body>
+								</code>
+								</pre>
+								<p> <b> WARNING! </b> The url <i>localhost/serverVideo/my_video_manifest.mpd</i> is the url of the MPD file that you will create in the following steps.</p>
+							</li>
+							<li>
+								<h5> Server Deployment </h5>
+								<ul>
+									<li>
+										
+										<h5> Create MPD file and DASHable segments</h5>
+										<p>
+											Go into your working directory:
+											<code> mkdir serverVideo</code>
+											<code>cd serverVideo</code>
+											<br>
+											Paste your file <i> in.video </i>(the video you want to dash) into the folder <i>serverVideo</i>.
+											<br>
+											<br>
+											Create the audio file with this command:
+											<code> ffmpeg -i in.video -vn -acodec libvorbis -ab 128k -dash 1 my_audio.webm</code>
+											<br>
+											Create then the dashable segment in different qualities:
+											<br>
+											<code> ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \<br>
+												-g 150 -tile-columns 4 -frame-parallel 1 -f webm -dash 1 \<br>
+												-an -vf scale=160:90 -b:v 250k -dash 1 video_160x90_250k.webm \<br>
+												-an -vf scale=320:180 -b:v 500k -dash 1 video_320x180_500k.webm \<br>
+												-an -vf scale=640:360 -b:v 750k -dash 1 video_640x360_750k.webm \<br>
+												-an -vf scale=640:360 -b:v 1000k -dash 1 video_640x360_1000k.webm \<br>
+												-an -vf scale=1280:720 -b:v 1500k -dash 1 video_1280x720_1500k.webm</code>
+											<br>
+											With this command line, you don't fragment the video, but you create 5 videos in different
+											formats. Check the options available in ffmpeg to see the fragmentation.
+											<br>
+											<br>
+											Create the MPD file:
+											<br>
+											<code>
+												ffmpeg \<br>
+												-f webm_dash_manifest -i video_160x90_250k.webm \<br>
+												-f webm_dash_manifest -i video_320x180_500k.webm \<br>
+												-f webm_dash_manifest -i video_640x360_750k.webm \<br>
+												-f webm_dash_manifest -i video_1280x720_1500k.webm \<br>
+												-f webm_dash_manifest -i my_audio.webm \<br>
+												-c copy \<br>
+												-map 0 -map 1 -map 2 -map 3 -map 4 \<br>
+												-f webm_dash_manifest \<br>
+												-adaptation_sets "id=0,streams=0,1,2,3 id=1,streams=4" \<br>
+												my_video_manifest.mpd<br>
+											</code>
+											<br>
+
+										</p>
+									</li>
+									<li>
+										<h5>Set up the server Apache2</h5>
+										<p>
+											Create a folder representating your server, named serverVideo. You can paste your MPD in and the different video fragments related in the MPD.
+											<br>
+											After having install your Apache2 server, put the precedent folder <i>serverVideo</i> in <i> /var/www </i>.
+											<code>sudo cp -r serverVideo /var/www/</code>
+											<br>
+											If you have a problem with the CORS, don't forget to allow all the origin modifying the file <i> /etc/apache2/apache2.conf </i> with:
+											<pre>
+											<code>
+&lt;Directory />
+	    Options FollowSymLinks
+	    AllowOverride all
+	    Require all granted
+&lt;/Directory>
+&lt;Directory /var/www/>  
+        Options Indexes FollowSymLinks  
+        AllowOverride all  
+        Allow from all  
+        Require all granted  
+        Header set Access-Control-Allow-Origin "*"  
+        Header set Access-Control-Allow-Headers "*" 
+        Header set Access-Control-Allow-Methods "*"  
+        Header set Access-Control-Request-Headers "*"  
+&lt;/Directory>
+											</code></pre>
+											Activate header module: <code> a2enmod headers</code>
+											<br>
+											After modifying your server configuration, restart apache2 server with:
+											<code>
+											sudo systemctl reload apache2
+											<br>
+											sudo systemctl restart apache2
+											</code>
+										</p>
+									</li>
+								</ul>
+
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h3> Demonstration</h3>
+						Open the <i>idex.html</i> file and envoy your video with MPEG-DASH.
+					</li>
+					
+
+				</ul>
+				
+				
+
+				<br>
+				<h3 class="card-title">Link to GitHub repository</h3>
+				<a href="https://github.com/VideoStreamingEnseirb/MPEG-DASH.git">GitHub repository</a>
+				<br> <br>
+				<h3> Bibliography </h3>
+				https://vitux.com/how-to-install-and-configure-apache-web-server-on-ubuntu/
+				<br>
+				https://github.com/Dash-Industry-Forum/dash.js/wiki
+				<br>
+				https://www.dacast.com/blog/explaining-mpeg-dash/
+				<br>
+				https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
